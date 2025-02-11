@@ -3,7 +3,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import connectToDb from "./database/db.js";
+import captainRoutes from "./routes/captain.routes.js";
 import userRoutes from "./routes/user.route.js";
+
 dotenv.config();
 const app = express();
 app.use(cors());
@@ -17,5 +19,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", userRoutes);
+app.use("/captains", captainRoutes);
 
 export default app;
